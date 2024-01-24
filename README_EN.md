@@ -9,7 +9,6 @@
 Download and install.
 
 ```
-git clone git@github.com:fishros/ros2bag_convert.git
 cd ros2_convert
 python3 setup.py bdist_wheel
 sudo pip install dist/ros2bag_convert-0.1.0-py3-none-any.whl
