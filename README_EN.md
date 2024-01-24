@@ -2,15 +2,9 @@
 
 [Chinese](README.md) | [English](README_EN.md)
 
-**Convert ROS2 Bag files to CSV, JSON, etc. **
+**Convert ROS2 Bag files to CSV. **
 
 ## I. Installation
-
-Command line installation.
-
-```
-sudo pip install ros2bag_convert
-```
 
 Download and install.
 
@@ -19,6 +13,12 @@ git clone git@github.com:fishros/ros2bag_convert.git
 cd ros2_convert
 python3 setup.py bdist_wheel
 sudo pip install dist/ros2bag_convert-0.1.0-py3-none-any.whl
+```
+
+You can use `build_install.sh` for installation.
+
+```
+bash build_install.sh
 ```
 
 ## II. Use
@@ -49,12 +49,7 @@ ros2 bag record test
 ros2bag-convert xxxx.db3
 ```
 
-## Author.
-
-- [小鱼-鱼香ROS](https://www.fishros.com)
-
 ## Version Record
 
-- 20210830-V0.1.0
-  - Completed basic conversion function
-  - Known bug: Data is not exported by hierarchical expansion
+- 20240124
+  - Completed the basic conversion of bag topics and handling nested lists

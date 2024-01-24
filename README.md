@@ -2,23 +2,22 @@
 
 [中文](README.md) | [English](README_EN.md)
 
-**将ROS2的Bag文件转换为CSV、JSON等。**
+**将ROS2的Bag文件转换为CSV。**
 
 ## 一、安装
 
-命令行安装：
+下载并用以下的命令安装.
 
 ```
-sudo pip install ros2bag_convert
-```
-
-下载安装：
-
-```
-git clone git@github.com:fishros/ros2bag_convert.git
 cd ros2_convert
 python3 setup.py bdist_wheel
 sudo pip install dist/ros2bag_convert-0.1.0-py3-none-any.whl
+```
+
+可以用``build_install.sh``进行安装
+
+```
+bash build_install.sh
 ```
 
 ## 二、使用
@@ -49,12 +48,7 @@ ros2 bag record test
 ros2bag-convert xxxx.db3
 ```
 
-## 作者
-
-- [小鱼-鱼香ROS](https://www.fishros.com)
-
 ## 版本记录
 
-- 20210830-V0.1.0
-  - 完成基础转换功能
-  - 已知bug：数据未按层级展开输出
+- 20240124 
+  - 完成了bag话题的基本转化和嵌套列表的转化
