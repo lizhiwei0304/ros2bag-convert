@@ -3,9 +3,8 @@ import numpy as np
 from rcl_interfaces import msg
 from rosidl_runtime_py.utilities import get_message
 from rclpy.serialization import deserialize_message
-# import sys
-# sys.path.append("/home/ros2/rosbag2_csv/rosbag2/")
-from . import message_converter, save_csv_file
+from message_converter import convert_dictionary_to_ros_message, convert_ros_message_to_dictionary
+from save_csv_file import save_csv_file
 import json
 import os
 
@@ -181,7 +180,7 @@ def read_from_topic(bag_file, topic_name, print_out=False):
     for i in range(len(messages_cdr)):
         # messages.append(deserialize_message(messages_cdr[i], msg_type))
         msg = deserialize_message(messages_cdr[i], msg_type)
-        dic_data = message_converter.convert_ros_message_to_dictionary(msg)
+        dic_data = convert_ros_message_to_dictionary(msg)
         messages.append(dic_data)
     if print_out:
         print(len(messages_cdr), 'messages deserialized from ', topic_name)
@@ -238,7 +237,7 @@ def read_write_from_all_topics(bag_file, print_out=False):
         path, topic_name = "/".join(tmp[:-1]),tmp[-1]
         path = bag_file[:bag_file.rfind("/")]+""+path
         os.makedirs(path, exist_ok=True)
-        save_csv_file.save_csv_file([timestamps, messages],path + "/" + topic_name+".csv")
+        save_csv_file([timestamps, messages],path + "/" + topic_name+".csv")
 
     # Close connection to the database
     close(connection)

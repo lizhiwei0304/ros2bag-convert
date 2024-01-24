@@ -31,10 +31,7 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 from rqt_py_common import message_helpers
-
 from builtin_interfaces.msg import Time,Duration
-#from rclpy.time import Time
-#from rclpy.duration import Duration
 from std_msgs.msg import Header
 import rclpy
 import base64
